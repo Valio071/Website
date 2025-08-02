@@ -31,7 +31,7 @@
       "name": "Тоби Тобиас ЕООД",
       "description": "Семейна компания за професионално почистване с 8 годишен опит",
       "url": "https://tobi-tobias.bg",
-      "telephone": "+359881234567",
+      "telephone": "+359878757575".
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "София",
@@ -88,9 +88,9 @@
     <style>
         /* Critical CSS - Above the fold styles only */
         :root {
-            --primary-green: #00A651;
-            --accent-green: #4CAF50;
-            --dark-green: #00802B;
+            --primary-green: #2E7D55;
+            --accent-green: #3B8F65;
+            --dark-green: #1F5F3F;
             --light-green: #E8F5E8;
             --dark-navy: #1E293B;
             --light-navy: #334155;
@@ -137,7 +137,7 @@
 
         /* Header */
         .header {
-            position: fixed;
+            position: relative;
             top: 0;
             width: 100%;
             z-index: 1000;
@@ -147,60 +147,51 @@
         
         /* Header Top Bar */
         .header-top {
-            background: var(--primary-green);
-            padding: 8px 0;
+            background: var(--white);
+            padding: 12px 0;
             font-size: 14px;
+            border-bottom: 3px solid var(--primary-green);
         }
         
         .header-top-content {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            gap: 3rem;
         }
         
         .header-contact-info {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
+            align-items: center;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--white);
+            gap: 0.75rem;
+            color: var(--dark-text);
+            font-weight: 600;
         }
         
         .contact-item a {
-            color: var(--white);
+            color: var(--dark-text);
             text-decoration: none;
             transition: var(--transition);
+            font-weight: 600;
         }
         
         .contact-item a:hover {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--primary-green);
         }
         
         .contact-icon {
-            font-size: 16px;
+            font-size: 18px;
+            color: var(--primary-green);
         }
         
         .header-social {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .social-link {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 18px;
-            transition: var(--transition);
-            padding: 4px;
-            border-radius: 4px;
-        }
-        
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            display: none;
         }
         
         /* Main Header */
@@ -275,173 +266,7 @@
             }
         }
         
-        /* Enhanced Sparkle Effects */
-        .sparkle {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10;
-        }
         
-        .sparkle:nth-child(7) { 
-            width: 4px; height: 4px; 
-            background: radial-gradient(circle, #fff 0%, transparent 70%);
-            top: 25%; left: 10%; 
-            animation: sparkleEnhanced 2.5s infinite ease-in-out;
-            animation-delay: 0s; 
-        }
-        .sparkle:nth-child(8) { 
-            width: 6px; height: 6px; 
-            background: radial-gradient(circle, #00FF80 0%, transparent 70%);
-            top: 15%; right: 15%; 
-            animation: sparkleEnhanced 3s infinite ease-in-out;
-            animation-delay: 0.5s; 
-        }
-        .sparkle:nth-child(9) { 
-            width: 3px; height: 3px; 
-            background: radial-gradient(circle, #fff 0%, transparent 70%);
-            bottom: 35%; left: 20%; 
-            animation: sparkleEnhanced 2.8s infinite ease-in-out;
-            animation-delay: 1s; 
-        }
-        .sparkle:nth-child(10) { 
-            width: 5px; height: 5px; 
-            background: radial-gradient(circle, #00FF80 0%, transparent 70%);
-            bottom: 20%; right: 25%; 
-            animation: sparkleEnhanced 3.2s infinite ease-in-out;
-            animation-delay: 1.5s; 
-        }
-        .sparkle:nth-child(11) { 
-            width: 4px; height: 4px; 
-            background: radial-gradient(circle, #fff 0%, transparent 70%);
-            top: 45%; left: 60%; 
-            animation: sparkleEnhanced 2.7s infinite ease-in-out;
-            animation-delay: 2s; 
-        }
-        .sparkle:nth-child(12) { 
-            width: 6px; height: 6px; 
-            background: radial-gradient(circle, #00FF80 0%, transparent 70%);
-            bottom: 45%; right: 45%; 
-            animation: sparkleEnhanced 3.5s infinite ease-in-out;
-            animation-delay: 2.5s; 
-        }
-        
-        @keyframes sparkleEnhanced {
-            0%, 100% { 
-                opacity: 0; 
-                transform: scale(0) rotate(0deg);
-                filter: brightness(1);
-            }
-            50% { 
-                opacity: 1; 
-                transform: scale(1.5) rotate(180deg);
-                filter: brightness(1.5);
-            }
-        }
-        
-        /* Modern Sophisticated Bubble Effects */
-        .modern-bubble {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 3;
-            filter: blur(0.5px);
-        }
-        
-        .modern-bubble::before {
-            content: '';
-            position: absolute;
-            top: 10%;
-            left: 20%;
-            width: 30%;
-            height: 30%;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            filter: blur(1px);
-        }
-        
-        .bubble-1 {
-            width: 35px; height: 35px;
-            left: 8%; top: 15%;
-            background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.8), rgba(0, 255, 128, 0.15), transparent);
-            animation: modernFloat 12s infinite ease-in-out;
-            animation-delay: 0s;
-        }
-        
-        .bubble-2 {
-            width: 22px; height: 22px;
-            right: 12%; top: 25%;
-            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.9), rgba(57, 255, 20, 0.2), transparent);
-            animation: modernFloat 15s infinite ease-in-out;
-            animation-delay: 2s;
-        }
-        
-        .bubble-3 {
-            width: 28px; height: 28px;
-            left: 75%; top: 40%;
-            background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.7), rgba(0, 255, 65, 0.18), transparent);
-            animation: modernFloat 18s infinite ease-in-out;
-            animation-delay: 4s;
-        }
-        
-        .bubble-4 {
-            width: 40px; height: 40px;
-            left: 5%; bottom: 20%;
-            background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.85), rgba(0, 255, 128, 0.12), transparent);
-            animation: modernFloat 20s infinite ease-in-out;
-            animation-delay: 6s;
-        }
-        
-        .bubble-5 {
-            width: 18px; height: 18px;
-            right: 25%; bottom: 30%;
-            background: radial-gradient(circle at 40% 15%, rgba(255, 255, 255, 0.95), rgba(39, 255, 14, 0.25), transparent);
-            animation: modernFloat 14s infinite ease-in-out;
-            animation-delay: 8s;
-        }
-        
-        .bubble-6 {
-            width: 32px; height: 32px;
-            left: 45%; top: 20%;
-            background: radial-gradient(circle at 25% 35%, rgba(255, 255, 255, 0.75), rgba(0, 255, 80, 0.16), transparent);
-            animation: modernFloat 16s infinite ease-in-out;
-            animation-delay: 10s;
-        }
-        
-        .bubble-7 {
-            width: 25px; height: 25px;
-            right: 8%; bottom: 45%;
-            background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.8), rgba(20, 255, 100, 0.2), transparent);
-            animation: modernFloat 22s infinite ease-in-out;
-            animation-delay: 12s;
-        }
-        
-        .bubble-8 {
-            width: 15px; height: 15px;
-            left: 20%; bottom: 10%;
-            background: radial-gradient(circle at 45% 20%, rgba(255, 255, 255, 0.9), rgba(0, 255, 45, 0.22), transparent);
-            animation: modernFloat 11s infinite ease-in-out;
-            animation-delay: 14s;
-        }
-        
-        @keyframes modernFloat {
-            0%, 100% {
-                transform: translateY(0px) translateX(0px) rotate(0deg) scale(0.8);
-                opacity: 0.3;
-            }
-            25% {
-                transform: translateY(-30px) translateX(10px) rotate(90deg) scale(1);
-                opacity: 0.7;
-            }
-            50% {
-                transform: translateY(-60px) translateX(-5px) rotate(180deg) scale(1.1);
-                opacity: 0.9;
-            }
-            75% {
-                transform: translateY(-40px) translateX(15px) rotate(270deg) scale(0.9);
-                opacity: 0.6;
-            }
-        }
         
         /* Floating Leaves */
         .floating-leaf {
@@ -679,7 +504,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 120px 1rem 80px;
+            padding: 80px 1rem 80px;
             background: url('Images/Landing_Image.jpg');
             background-size: cover;
             background-position: center center;
@@ -870,7 +695,7 @@
             }
 
             .hero {
-                padding: 140px 1rem 60px;
+                padding: 60px 1rem 60px;
             }
 
             .hero-content-box {
@@ -910,6 +735,9 @@
         }
     </style>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <!-- Preload critical fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -928,29 +756,6 @@
 
     <!-- Header -->
     <header class="header" role="banner">
-        <!-- Header Top Bar -->
-        <div class="header-top">
-            <div class="container">
-                <div class="header-top-content">
-                    <div class="header-contact-info">
-                        <span class="contact-item">
-                            <i class="contact-icon">📧</i>
-                            <a href="mailto:info@arkadi-clean.bg">info@arkadi-clean.bg</a>
-                        </span>
-                        <span class="contact-item">
-                            <i class="contact-icon">📞</i>
-                            <a href="tel:+359881234567">+359 88 123 4567</a>
-                        </span>
-                    </div>
-                    <div class="header-social">
-                        <a href="#" class="social-link" aria-label="Facebook">📘</a>
-                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Main Header -->
         <div class="header-main">
             <div class="container">
@@ -967,6 +772,7 @@
                         <li><a href="#services" class="nav-link">Услуги</a></li>
                         <li><a href="#portfolio" class="nav-link">Галерия</a></li>
                         <li><a href="#about" class="nav-link">За нас</a></li>
+                        <li><a href="#prices" class="nav-link">Цени</a></li>
                         <li><a href="#contact" class="nav-link">Контакт</a></li>
                     </ul>
 
@@ -977,7 +783,7 @@
                                 <div class="cta-content">
                                     <span class="cta-title">Обадете се</span>
                                     <span class="cta-subtitle">
-                                        <a href="tel:+359881234567">088 123 4567</a>
+                                        <a href="tel:+359878757575">087 875 7575</a>
                                     </span>
                                 </div>
                             </div>
@@ -1005,8 +811,9 @@
                     <li><a href="#services" class="mobile-nav-link">Услуги</a></li>
                     <li><a href="#portfolio" class="mobile-nav-link">Галерия</a></li>
                     <li><a href="#about" class="mobile-nav-link">За нас</a></li>
+                    <li><a href="#prices" class="mobile-nav-link">Цени</a></li>
                     <li><a href="#contact" class="mobile-nav-link">Контакт</a></li>
-                    <li><a href="tel:+359881234567" class="mobile-nav-link">📞 Обадете се</a></li>
+                    <li><a href="tel:+359878757575" class="mobile-nav-link">📞 Обадете се</a></li>
                 </ul>
             </nav>
         </div>
@@ -1029,29 +836,12 @@
                         data-src="Images/Landing_Image.jpg" 
                         data-srcset="images/landing-400w.jpg 400w, images/landing-800w.jpg 800w, images/landing-1200w.jpg 1200w, images/landing-1600w.jpg 1600w"
                         sizes="100vw"
-                        alt="Професионално почистване - Тоби Тобиас ЕООД"
+                        alt="Професионално почистване на офиси и домове в София - Тоби Тобиас ЕООД с 8 години опит и качествени машини Cleanfix"
                         data-critical="true"
                         loading="eager"
                         decoding="async">
                 </picture>
             </div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <!-- Modern Floating Elements -->
-            <div class="modern-bubble bubble-1"></div>
-            <div class="modern-bubble bubble-2"></div>
-            <div class="modern-bubble bubble-3"></div>
-            <div class="modern-bubble bubble-4"></div>
-            <div class="modern-bubble bubble-5"></div>
-            <div class="modern-bubble bubble-6"></div>
-            <div class="modern-bubble bubble-7"></div>
-            <div class="modern-bubble bubble-8"></div>
             
             <!-- Floating Leaves -->
             <div class="floating-leaf leaf-1">🍃</div>
@@ -1086,9 +876,6 @@
 
         <!-- Services Section -->
         <section id="services" class="services section-blue" aria-labelledby="services-title">
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
             <div class="container">
                 <div class="section-header">
                     <h2 id="services-title">Нашите услуги</h2>
@@ -1157,46 +944,41 @@
 
         <!-- Equipment Section -->
         <section id="equipment" class="equipment section-yellow" aria-labelledby="equipment-title">
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
             <div class="container">
                 <div class="section-header">
                     <h2 id="equipment-title">Използвани машини и технологии</h2>
                     <p>Ние не правим компромис с качеството – работим с най-доброто оборудване в бранша</p>
                 </div>
 
-                <div class="equipment-grid">
-                    <div class="equipment-card">
-                        <div class="equipment-icon" aria-hidden="true">🔹</div>
-                        <h3>Cleanfix</h3>
-                        <p>Експерт в професионалното почистване с иновативни решения</p>
+                <div class="equipment-container">
+                    <div class="equipment-left">
+                        <div class="equipment-card compact">
+                            <div class="equipment-icon" aria-hidden="true">🔹</div>
+                            <h3>Cleanfix</h3>
+                            <p>Експерт в професионалното почистване с иновативни решения</p>
+                        </div>
+                        <div class="equipment-card compact">
+                            <div class="equipment-icon" aria-hidden="true">🔹</div>
+                            <h3>EV International</h3>
+                            <p>Лидер в екологично и дълбоко почистване</p>
+                        </div>
                     </div>
-
-                    <div class="equipment-card">
-                        <div class="equipment-icon" aria-hidden="true">🔹</div>
-                        <h3>EV International</h3>
-                        <p>Лидер в екологично и дълбоко почистване</p>
+                    
+                    <div class="equipment-benefits">
+                        <h3>Техниката ни гарантира:</h3>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check-circle"></i> Висока ефективност</li>
+                            <li><i class="fas fa-check-circle"></i> Пестене на време</li>
+                            <li><i class="fas fa-check-circle"></i> Щадящо почистване без увреждане на повърхности</li>
+                            <li><i class="fas fa-check-circle"></i> Безопасност за вас и вашето семейство</li>
+                        </ul>
                     </div>
-                </div>
-
-                <div class="equipment-benefits">
-                    <h3>Техниката ни гарантира:</h3>
-                    <ul class="benefits-list">
-                        <li>Висока ефективност</li>
-                        <li>Пестене на време</li>
-                        <li>Щадящо почистване без увреждане на повърхности</li>
-                        <li>Безопасност за вас и вашето семейство</li>
-                    </ul>
                 </div>
             </div>
         </section>
 
         <!-- Portfolio Gallery Section -->
         <section id="portfolio" class="portfolio section-white" aria-labelledby="portfolio-title">
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
             <div class="container">
                 <div class="section-header">
                     <h2 id="portfolio-title">Нашата работа в действие</h2>
@@ -1401,6 +1183,205 @@
             </div>
         </section>
 
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials section-white" aria-labelledby="testimonials-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="testimonials-title">Какво казват нашите клиенти</h2>
+                    <p>Над 500 доволни клиента за 8 години работа</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">★★★★★</div>
+                            <blockquote>
+                                "Работя с Тоби Тобиас вече 3 години за почистването на нашия офис. Винаги са точни, професионални и внимателни към детайлите. Препоръчвам ги топло!"
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <strong>Мария Петрова</strong>
+                                <span>Управител, "Инженеринг ЕООД"</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">★★★★★</div>
+                            <blockquote>
+                                "Изключително доволна от почистването на банята и кухнята. Резултатът беше перфектен - всичко блестеше! Ще ги ползвам отново със сигурност."
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <strong>Георги Димитров</strong>
+                                <span>Домакин, гр. София</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">★★★★★</div>
+                            <blockquote>
+                                "Професионалното пране на дивана ми върна живота му! Използваха качествени машини и работиха много внимателно. Отлично съотношение цена-качество."
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <strong>Елена Стоянова</strong>
+                                <span>Клиент, гр. Пловдив</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">★★★★★</div>
+                            <blockquote>
+                                "Семейна фирма с човешко отношение. Винаги са отзивчиви, коректни с цените и качеството е на високо ниво. Много съм доволен от сътрудничеството."
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <strong>Иван Николов</strong>
+                                <span>Собственик на ресторант</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <div class="trust-number">8+</div>
+                        <div class="trust-label">години опит</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-number">500+</div>
+                        <div class="trust-label">доволни клиенти</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-number">100%</div>
+                        <div class="trust-label">гаранция за качество</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-number">24/7</div>
+                        <div class="trust-label">подкрепа</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="prices" class="prices section-blue" aria-labelledby="prices-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="prices-title">Цени за почистване</h2>
+                    <p>Прозрачни цени без скрити такси - платете само за това, което получавате</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card featured">
+                        <div class="pricing-header">
+                            <h3>Абонаментно почистване на офиси</h3>
+                            <div class="pricing-badge">ПОПУЛЯРНО</div>
+                        </div>
+                        <div class="pricing-content">
+                            <div class="price-range">
+                                <span class="price-from">от</span>
+                                <span class="price-amount">80лв</span>
+                                <span class="price-unit">/ посещение</span>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> 1, 2, 4 или 8 посещения месечно</li>
+                                <li><i class="fas fa-check"></i> Персонализирана оферта</li>
+                                <li><i class="fas fa-check"></i> Договор с гаранции</li>
+                                <li><i class="fas fa-check"></i> Професионални препарати</li>
+                            </ul>
+                            <p class="pricing-note">*Цената зависи от площта и честотата на почистване</p>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Почистване на бани</h3>
+                        </div>
+                        <div class="pricing-content">
+                            <div class="price-range">
+                                <span class="price-from">от</span>
+                                <span class="price-amount">120лв</span>
+                                <span class="price-unit">/ баня</span>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> Душ кабини и вани</li>
+                                <li><i class="fas fa-check"></i> Плочки и фуги</li>
+                                <li><i class="fas fa-check"></i> Санитарен възел</li>
+                                <li><i class="fas fa-check"></i> Огледала и аксесоари</li>
+                            </ul>
+                            <p class="pricing-note">*Цената зависи от размера и състоянието</p>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Почистване на кухни</h3>
+                        </div>
+                        <div class="pricing-content">
+                            <div class="price-range">
+                                <span class="price-from">от</span>
+                                <span class="price-amount">150лв</span>
+                                <span class="price-unit">/ кухня</span>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> Дограми и мебели</li>
+                                <li><i class="fas fa-check"></i> Стени и радиатори</li>
+                                <li><i class="fas fa-check"></i> Уреди и повърхности</li>
+                                <li><i class="fas fa-check"></i> Детайлно почистване</li>
+                            </ul>
+                            <p class="pricing-note">*Включва основни уреди и повърхности</p>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Пране на мека мебел</h3>
+                        </div>
+                        <div class="pricing-content">
+                            <div class="price-range">
+                                <span class="price-from">от</span>
+                                <span class="price-amount">40лв</span>
+                                <span class="price-unit">/ седалка</span>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> Дивани и кресла</li>
+                                <li><i class="fas fa-check"></i> Професионални машини</li>
+                                <li><i class="fas fa-check"></i> Безопасни препарати</li>
+                                <li><i class="fas fa-check"></i> Почистване на място</li>
+                            </ul>
+                            <p class="pricing-note">*Минимална поръчка 2 седалки</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-cta">
+                    <h3>Получете безплатна оценка</h3>
+                    <p>Свържете се с нас за персонализирана оферта според вашите нужди</p>
+                    <div class="cta-buttons">
+                        <a href="tel:+359878757575" class="btn btn-primary">
+                            <i class="fas fa-phone"></i>
+                            Обадете се сега
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Изпратете запитване
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="contact section-white" aria-labelledby="contact-title">
             <div class="container">
@@ -1417,7 +1398,7 @@
                             <div class="contact-icon" aria-hidden="true">📞</div>
                             <div>
                                 <strong>Телефон</strong>
-                                <a href="tel:+359881234567">+359 88 123 4567</a>
+                                <a href="tel:+359878757575">+359 87 875 7575</a>
                             </div>
                         </div>
 
@@ -1425,7 +1406,7 @@
                             <div class="contact-icon" aria-hidden="true">💬</div>
                             <div>
                                 <strong>Viber / WhatsApp</strong>
-                                <a href="https://wa.me/359881234567">+359 88 123 4567</a>
+                                <a href="https://wa.me/359878757575">+359 87 875 7575</a>
                             </div>
                         </div>
 
@@ -1542,7 +1523,7 @@
                 <div class="footer-section">
                     <h4>Контакт</h4>
                     <ul>
-                        <li>📞 <a href="tel:+359881234567">+359 88 123 4567</a></li>
+                        <li>📞 <a href="tel:+359878757575">+359 87 875 7575</a></li>
                         <li>📧 <a href="mailto:info@arkadi-clean.bg">info@arkadi-clean.bg</a></li>
                         <li>📍 София и област</li>
                     </ul>
@@ -1558,7 +1539,7 @@
 
     <!-- Floating CTA for mobile -->
     <div class="floating-cta" aria-hidden="true">
-        <a href="tel:+359881234567" class="floating-cta-btn" aria-label="Обадете се сега">
+        <a href="tel:+359878757575" class="floating-cta-btn" aria-label="Обадете се сега">
             📞 Обадете се
         </a>
     </div>

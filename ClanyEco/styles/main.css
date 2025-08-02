@@ -44,27 +44,27 @@ button {
 /* ===== CSS VARIABLES ===== */
 :root {
   /* Colors */
-  --primary-color: #10b981;
-  --primary-dark: #059669;
-  --primary-light: #6ee7b7;
-  --secondary-color: #3b82f6;
-  --accent-color: #f59e0b;
-  --success-color: #10b981;
-  --warning-color: #f59e0b;
-  --error-color: #ef4444;
+  --primary-color: #00bf63;
+  --primary-dark: #00a651;
+  --primary-light: #4cff88;
+  --secondary-color: #0066ff;
+  --accent-color: #ff6b35;
+  --success-color: #00bf63;
+  --warning-color: #ffb020;
+  --error-color: #ff4757;
   
   /* Neutrals */
   --white: #ffffff;
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  --gray-800: #1f2937;
-  --gray-900: #111827;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
   
   /* Typography */
   --font-primary: 'Inter', sans-serif;
@@ -309,6 +309,8 @@ button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: black !important;
+  font-weight: 500;
 }
 
 .contact-item i {
@@ -316,7 +318,8 @@ button {
 }
 
 .contact-item a {
-  color: var(--white);
+  color: black !important;
+  font-weight: 500;
   transition: color var(--transition-fast);
 }
 
@@ -620,10 +623,11 @@ button {
 }
 
 .hero-description {
-  font-size: 1.125rem;
-  color: var(--gray-600);
+  font-size: 1.2rem;
+  color: var(--gray-800);
   margin-bottom: 2rem;
   line-height: 1.7;
+  font-weight: 500;
 }
 
 .hero-actions {
@@ -730,8 +734,9 @@ button {
 
 .section-description {
   font-size: 1.125rem;
-  color: var(--gray-600);
+  color: var(--gray-700);
   line-height: 1.7;
+  font-weight: 500;
 }
 
 /* ===== ABOUT SECTION ===== */
@@ -910,9 +915,10 @@ button {
 }
 
 .service-description {
-  color: var(--gray-600);
+  color: var(--gray-700);
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 .service-features {
@@ -924,7 +930,8 @@ button {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0;
-  color: var(--gray-600);
+  color: var(--gray-700);
+  font-weight: 500;
 }
 
 .service-features li i {
@@ -950,6 +957,106 @@ button {
   background: var(--primary-color);
   color: var(--white);
   transform: translateY(-2px);
+}
+
+/* ===== EQUIPMENT SECTION ===== */
+.equipment {
+  padding: var(--section-padding);
+  background: var(--gray-50);
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.equipment-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  transition: all var(--transition-normal);
+  border: 1px solid var(--gray-200);
+}
+
+.equipment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.equipment-icon {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 2rem;
+  margin: 0 auto 1.5rem;
+}
+
+.equipment-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+}
+
+.equipment-card p {
+  color: var(--gray-700);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.equipment-benefits {
+  text-align: center;
+}
+
+.equipment-benefits h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 2rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.benefit-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.benefit-item i {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.benefit-item span {
+  color: var(--gray-700);
+  font-weight: 500;
 }
 
 /* ===== PORTFOLIO SECTION ===== */
@@ -1079,6 +1186,85 @@ button {
   background: var(--white);
   color: var(--primary-color);
   transform: scale(1.1);
+}
+
+/* ===== TESTIMONIALS SECTION ===== */
+.testimonials {
+  padding: var(--section-padding);
+  background: var(--gray-50);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--gray-200);
+  position: relative;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-stars i {
+  color: var(--accent-color);
+  font-size: 1.25rem;
+}
+
+.testimonial-content {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--gray-700);
+  font-style: italic;
+  margin-bottom: 2rem;
+  position: relative;
+  font-weight: 500;
+}
+
+.testimonial-content::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--primary-color);
+  position: absolute;
+  top: -1rem;
+  left: -0.5rem;
+  font-family: serif;
+  opacity: 0.3;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-info h4 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 0.25rem;
+}
+
+.author-info p {
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 /* ===== TEAM SECTION ===== */
