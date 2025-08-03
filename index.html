@@ -646,9 +646,10 @@
         }
 
         /* Services Section */
+        /* Services Overview Section - White Background (Section 2) */
         .services-overview {
             padding: 8rem 0;
-            background: linear-gradient(135deg, var(--light-bg) 0%, rgba(16, 185, 129, 0.02) 100%);
+            background: var(--white);
             position: relative;
             overflow: hidden;
         }
@@ -938,10 +939,46 @@
         }
 
         /* Portfolio/Gallery Section */
+        /* Portfolio Section - Green Background (Section 3) */
         .portfolio {
             padding: 8rem 0;
-            background: var(--light-bg);
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
             position: relative;
+            color: var(--white);
+        }
+        
+        .portfolio .section-tag {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .portfolio .section-title {
+            color: var(--white);
+        }
+        
+        .portfolio .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .portfolio .highlight {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .portfolio .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .portfolio .filter-btn.active,
+        .portfolio .filter-btn:hover {
+            background: var(--white);
+            color: var(--primary-green);
+            border-color: var(--white);
         }
 
         .portfolio-filters {
@@ -1105,11 +1142,33 @@
             font-weight: 600;
         }
 
-        /* Team Section */
+        /* ECO Benefits Section - Green Background (Section 1) */
         .team {
             padding: 8rem 0;
-            background: var(--white);
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
             position: relative;
+            color: var(--white);
+        }
+        
+        .team .section-tag {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .team .section-title {
+            color: var(--white);
+        }
+        
+        .team .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .team .highlight {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .team-grid {
@@ -1185,10 +1244,10 @@
             line-height: 1.6;
         }
 
-        /* Equipment Section */
+        /* Equipment Section - White Background (Section 4) */
         .equipment {
             padding: 8rem 0;
-            background: linear-gradient(135deg, var(--light-bg) 0%, rgba(16, 185, 129, 0.02) 100%);
+            background: var(--white);
             position: relative;
         }
 
@@ -1284,7 +1343,7 @@
             font-size: 1.1rem;
         }
 
-        /* About Section */
+        /* About Section - White Background (Section 6) */
         .about {
             padding: 8rem 0;
             background: var(--white);
@@ -1404,10 +1463,32 @@
             z-index: -1;
         }
 
-        /* Testimonials */
+        /* Testimonials - Green Background (Section 7) */
         .testimonials {
             padding: 8rem 0;
-            background: var(--light-bg);
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            color: var(--white);
+        }
+        
+        .testimonials .section-tag {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonials .section-title {
+            color: var(--white);
+        }
+        
+        .testimonials .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .testimonials .highlight {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .testimonials-grid {
@@ -1483,7 +1564,7 @@
             font-size: 0.95rem;
         }
 
-        /* FAQ Section */
+        /* FAQ Section - White Background (Section 8) */
         .faq {
             padding: 8rem 0;
             background: var(--white);
@@ -1554,14 +1635,21 @@
             font-size: 1rem;
         }
 
-        /* Newsletter Section */
+        /* Newsletter Section - Green Background (Section 9) */
         .newsletter {
             padding: 6rem 0;
-            background: linear-gradient(135deg, var(--dark-navy), var(--light-navy));
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
             color: var(--white);
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+        
+        .newsletter .highlight {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .newsletter::before {
@@ -1646,7 +1734,7 @@
             box-shadow: var(--shadow-lg);
         }
 
-        /* Contact Section */
+        /* Contact Section - White Background (Section 10) */
         .contact {
             padding: 8rem 0;
             background: var(--white);
@@ -2026,7 +2114,7 @@
         }
 
         /* High contrast mode support */
-        @media (prefers-contrast: high) {
+        @media (prefers-contrast: more) {
             :root {
                 --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
                 --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
@@ -2152,6 +2240,84 @@
             Безплатна Оферта
         </a>
     </div>
+
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="500">0</span>
+                    <span class="stat-label">Доволни клиенти</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="1200">0</span>
+                    <span class="stat-label">Успешни проекта</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="9">0</span>
+                    <span class="stat-label">Години опит</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="24">0</span>
+                    <span class="stat-label">Часа поддръжка</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ECO Benefits Section -->
+    <section class="team" id="eco-benefits">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fas fa-leaf"></i>
+                    ECO Предимства
+                </div>
+                <h2 class="section-title">
+                    Защо да изберете <span class="highlight">ECO Парно</span> почистване?
+                </h2>
+                <p class="section-subtitle">
+                    100% ECO почистване и дезинфекция с пара - без вредни химикали за вас, вашите деца и домашни любимци.
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo" style="background: linear-gradient(135deg, #10B981, #34D399);">
+                        <i class="fas fa-baby" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                    <h3 class="team-name">Безопасно за деца</h3>
+                    <p class="team-description">Само пара и висока температура - никакви токсични химикали, които могат да навредят на здравето на вашите деца.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo" style="background: linear-gradient(135deg, #10B981, #34D399);">
+                        <i class="fas fa-paw" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                    <h3 class="team-name">Безопасно за домашни любимци</h3>
+                    <p class="team-description">Вашите домашни любимци няма да бъдат изложени на вредни вещества - само чиста пара за здравословна среда.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo" style="background: linear-gradient(135deg, #10B981, #34D399);">
+                        <i class="fas fa-leaf" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                    <h3 class="team-name">100% БИО технология</h3>
+                    <p class="team-description">Парната технология използва само вода и висока температура за премахване на замърсяванията и дезинфекция.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo" style="background: linear-gradient(135deg, #10B981, #34D399);">
+                        <i class="fas fa-lungs" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                    <h3 class="team-name">Безопасно за здравето</h3>
+                    <p class="team-description">Никакви алергични реакции или дразнения - идеално за хора с чувствителност към химически препарати.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Services Overview -->
     <section class="services-overview" id="services">
@@ -2464,57 +2630,7 @@
         </div>
     </section>
 
-    <!-- ECO Benefits Section -->
-    <section class="team" id="eco-benefits">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">
-                    <i class="fas fa-leaf"></i>
-                    ECO Предимства
-                </div>
-                <h2 class="section-title">
-                    Защо да изберете <span class="highlight">ECO Парно</span> почистване?
-                </h2>
-                <p class="section-subtitle">
-                    100% ECO почистване и дезинфекция с пара - без вредни химикали за вас, вашите деца и домашни любимци.
-                </p>
-            </div>
-            
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-photo" style="background: linear-gradient(135deg, #10B981, #34D399);">
-                        <i class="fas fa-baby" style="color: white; font-size: 2rem;"></i>
-                    </div>
-                    <h3 class="team-name">Безопасно за деца</h3>
-                    <p class="team-description">Само пара и висока температура - никакви токсични химикали, които могат да навредят на здравето на вашите деца.</p>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-photo" style="background: linear-gradient(135deg, #10B981, #34D399);">
-                        <i class="fas fa-paw" style="color: white; font-size: 2rem;"></i>
-                    </div>
-                    <h3 class="team-name">Безопасно за домашни любимци</h3>
-                    <p class="team-description">Вашите домашни любимци няма да бъдат изложени на вредни вещества - само чиста пара за здравословна среда.</p>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-photo" style="background: linear-gradient(135deg, #10B981, #34D399);">
-                        <i class="fas fa-leaf" style="color: white; font-size: 2rem;"></i>
-                    </div>
-                    <h3 class="team-name">100% БИО технология</h3>
-                    <p class="team-description">Парната технология използва само вода и висока температура за премахване на замърсяванията и дезинфекция.</p>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-photo" style="background: linear-gradient(135deg, #10B981, #34D399);">
-                        <i class="fas fa-lungs" style="color: white; font-size: 2rem;"></i>
-                    </div>
-                    <h3 class="team-name">Безопасно за здравето</h3>
-                    <p class="team-description">Никакви алергични реакции или дразнения - идеално за хора с чувствителност към химически препарати.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Equipment Section -->
     <section class="equipment" id="equipment">
@@ -2600,29 +2716,7 @@
         </div>
     </section>
 
-    <!-- Statistics Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number" data-count="500">0</span>
-                    <span class="stat-label">Доволни клиенти</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="1200">0</span>
-                    <span class="stat-label">Успешни проекта</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="9">0</span>
-                    <span class="stat-label">Години опит</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="24">0</span>
-                    <span class="stat-label">Часа поддръжка</span>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- About Section -->
     <section class="about" id="about">
@@ -2738,7 +2832,7 @@
                     Често задавани въпроси
                 </div>
                 <h2 class="section-title">
-                    Отговори на <span class="highlight">най-честите въпроси</span>
+                    Често задавани <span class="highlight">въпроси?</span>
                 </h2>
                 <p class="section-subtitle">
                     Намерете отговори на най-често задаваните въпроси за нашите услуги за почистване.
@@ -2785,21 +2879,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>Останете <span class="highlight">Информирани</span></h2>
-            <p>Абонирайте се за нашия бюлетин и получавайте съвети за поддържане на чистотата и специални оферти.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Въведете вашия имейл адрес" required>
-                <button type="submit">
-                    <i class="fas fa-paper-plane"></i>
-                    Абонирай се
-                </button>
-            </form>
         </div>
     </section>
 
