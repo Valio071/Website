@@ -3051,39 +3051,49 @@
             });
         }
 
-        // Show/hide scroll to top button
+        // Combined scroll event handler
         window.addEventListener('scroll', function() {
             const scrollTop = document.querySelector('.scroll-top');
-            if (window.pageYOffset > 300) {
+            const navbar = document.querySelector('.navbar');
+            const floatingCta = document.getElementById('floatingCta');
+            const scrollY = window.pageYOffset;
+            
+            // Scroll to top button
+            if (scrollY > 300) {
                 scrollTop.classList.add('visible');
             } else {
                 scrollTop.classList.remove('visible');
             }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+            
+            // Navbar scroll effect and floating CTA
+            if (scrollY > 100) {
+                navbar.classList.add('scrolled');
+                floatingCta.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                floatingCta.classList.remove('visible');
+            }
         });
 
         // Form submission
-        document.querySelector('.booking-form form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Благодарим ви за заявката! Ще се свържем с вас в най-скоро време.');
-        });
-
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Успешно се абонирахте за нашия бюлетин!');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Newsletter form
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Успешно се абонирахте за нашия бюлетин!');
+                });
+            }
+            
+            // Booking form
+            const bookingForm = document.querySelector('.booking-form form');
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Благодарим ви за заявката! Ще се свържем с вас в най-скоро време.');
+                });
+            }
         });
 
         // Mobile Menu Toggle
@@ -3093,46 +3103,36 @@
             document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
         }
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            const floatingCta = document.getElementById('floatingCta');
-            
-            if (window.pageYOffset > 100) {
-                navbar.classList.add('scrolled');
-                floatingCta.classList.add('visible');
-            } else {
-                navbar.classList.remove('scrolled');
-                floatingCta.classList.remove('visible');
-            }
-        });
-
         // Counter Animation
+        let countersAnimated = false;
         function animateCounters() {
+            if (countersAnimated) return;
+            countersAnimated = true;
+            
             const counters = document.querySelectorAll('.stat-number');
-            const speed = 200;
+            const speed = 50; // Reduced speed for smoother animation
 
             counters.forEach(counter => {
-                const animate = () => {
-                    const value = +counter.getAttribute('data-count');
-                    const data = +counter.innerText;
-                    const time = value / speed;
-                    
-                    if (data < value) {
-                        counter.innerText = Math.ceil(data + time);
-                        setTimeout(animate, 1);
+                const target = +counter.getAttribute('data-count');
+                let current = 0;
+                const increment = target / speed;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.innerText = target;
+                        clearInterval(timer);
                     } else {
-                        counter.innerText = value;
+                        counter.innerText = Math.ceil(current);
                     }
-                };
-                animate();
+                }, 20);
             });
         }
 
         // Intersection Observer for animations
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -3146,9 +3146,177 @@
             });
         }, observerOptions);
 
-        // Observe sections for animations
+        // Before/After slider functionality
+        function initBeforeAfterSliders() {
+            const sliders = document.querySelectorAll('.before-after-slider');
+            
+            if (sliders.length === 0) {
+                console.warn('Before/after sliders not found');
+                return;
+            }
+            
+            let isDragging = false;
+            let currentSlider = null;
+            
+            sliders.forEach(slider => {
+                const handle = slider.querySelector('.slider-handle');
+                const afterImage = slider.querySelector('.after-image');
+                
+                if (!handle || !afterImage) {
+                    console.warn('Slider elements missing');
+                    return;
+                }
+                
+                function updateSlider(x) {
+                    const rect = slider.getBoundingClientRect();
+                    const position = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+                    const percentage = position * 100;
+                    
+                    handle.style.left = percentage + '%';
+                    afterImage.style.clipPath = `polygon(${percentage}% 0%, 100% 0%, 100% 100%, ${percentage}% 100%)`;
+                }
+                
+                // Mouse events
+                handle.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    currentSlider = slider;
+                    e.preventDefault();
+                    document.body.style.cursor = 'ew-resize';
+                });
+                
+                slider.addEventListener('mousemove', (e) => {
+                    if (isDragging && currentSlider === slider) {
+                        updateSlider(e.clientX);
+                    }
+                });
+                
+                slider.addEventListener('click', (e) => {
+                    if (!isDragging && e.target !== handle) {
+                        updateSlider(e.clientX);
+                    }
+                });
+                
+                // Touch events for mobile
+                handle.addEventListener('touchstart', (e) => {
+                    isDragging = true;
+                    currentSlider = slider;
+                    e.preventDefault();
+                }, { passive: false });
+                
+                slider.addEventListener('touchmove', (e) => {
+                    if (isDragging && currentSlider === slider) {
+                        e.preventDefault();
+                        updateSlider(e.touches[0].clientX);
+                    }
+                }, { passive: false });
+                
+                // Initialize slider at 50%
+                setTimeout(() => {
+                    updateSlider(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width / 2);
+                }, 100);
+            });
+            
+            // Global event handlers
+            document.addEventListener('mouseup', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    currentSlider = null;
+                    document.body.style.cursor = 'default';
+                }
+            });
+            
+            document.addEventListener('touchend', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    currentSlider = null;
+                }
+            });
+        }
+        
+        // Portfolio filtering
+        function initPortfolioFiltering() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.before-after-card');
+            
+            if (filterButtons.length === 0 || galleryItems.length === 0) {
+                console.warn('Portfolio filter elements not found');
+                return;
+            }
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach((item, index) => {
+                        const category = item.getAttribute('data-category');
+                        
+                        if (filter === 'all' || category === filter) {
+                            item.style.display = 'block';
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(30px)';
+                            
+                            // Stagger the animation
+                            setTimeout(() => {
+                                item.style.transition = 'all 0.5s ease-out';
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, index * 100);
+                        } else {
+                            item.style.transition = 'all 0.3s ease-out';
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(-20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        // Enhanced smooth scrolling with offset for fixed navbar
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    
+                    if (target) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const offsetTop = target.offsetTop - navbarHeight - 20; // Extra 20px padding
+                        
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const mobileMenu = document.getElementById('mobileMenu');
+                        if (mobileMenu && mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Single DOMContentLoaded event listener
         document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.stats, .services-overview, .about, .testimonials');
+            // Initialize all components
+            initBeforeAfterSliders();
+            initPortfolioFiltering();
+            initSmoothScrolling();
+            
+            // Observe sections for animations
+            const sections = document.querySelectorAll('.stats, .services-overview, .about, .testimonials, .portfolio');
             sections.forEach(section => {
                 observer.observe(section);
             });
@@ -3163,103 +3331,6 @@
                 mobileMenu.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
-        });
-
-        // Before/After slider functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const sliders = document.querySelectorAll('.before-after-slider');
-            
-            sliders.forEach(slider => {
-                const handle = slider.querySelector('.slider-handle');
-                const afterImage = slider.querySelector('.after-image');
-                let isDragging = false;
-                
-                function updateSlider(x) {
-                    const rect = slider.getBoundingClientRect();
-                    const position = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
-                    const percentage = position * 100;
-                    
-                    handle.style.left = percentage + '%';
-                    afterImage.style.clipPath = `polygon(${percentage}% 0%, 100% 0%, 100% 100%, ${percentage}% 100%)`;
-                }
-                
-                handle.addEventListener('mousedown', (e) => {
-                    isDragging = true;
-                    e.preventDefault();
-                });
-                
-                document.addEventListener('mousemove', (e) => {
-                    if (isDragging) {
-                        updateSlider(e.clientX);
-                    }
-                });
-                
-                document.addEventListener('mouseup', () => {
-                    isDragging = false;
-                });
-                
-                slider.addEventListener('click', (e) => {
-                    if (!isDragging) {
-                        updateSlider(e.clientX);
-                    }
-                });
-                
-                // Touch events for mobile
-                handle.addEventListener('touchstart', (e) => {
-                    isDragging = true;
-                    e.preventDefault();
-                });
-                
-                document.addEventListener('touchmove', (e) => {
-                    if (isDragging) {
-                        updateSlider(e.touches[0].clientX);
-                    }
-                });
-                
-                document.addEventListener('touchend', () => {
-                    isDragging = false;
-                });
-            });
-        });
-        
-        // Portfolio filtering
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.before-after-card');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    
-                    const filter = button.getAttribute('data-filter');
-                    
-                    galleryItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.style.display = 'block';
-                            item.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-
-        // Enhanced smooth scrolling with offset for fixed navbar
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 100;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
         });
     </script>
 </body>
